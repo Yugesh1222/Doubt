@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sittu Poduthal ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@500;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#fff4ea;--bg2:#ffdfe9;--bg3:#e6dcff;--ink:#6a3a63;--soft:#9b6f93;--pink:#ff8fb1;--pink2:#ff6f9c;--lav:#b49cf0;--lav2:#8f78e0;--gold:#e0a84f;--card:rgba(255,255,255,.74);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#2c2038;--bg2:#3d2349;--bg3:#2a2855;--ink:#ffe6f1;--soft:#d9b8d3;--card:rgba(58,38,78,.68)}}
+:root[data-theme="dark"]{--bg1:#2c2038;--bg2:#3d2349;--bg3:#2a2855;--ink:#ffe6f1;--soft:#d9b8d3;--card:rgba(58,38,78,.68)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:'Baloo Thambi 2','Nirmala UI','Noto Sans Tamil',system-ui,sans-serif;overflow-x:hidden;
+background:radial-gradient(circle at 1px 1px,rgba(224,168,79,.22) 1.5px,transparent 2px) 0 0/26px 26px,linear-gradient(160deg,var(--bg1),var(--bg2) 50%,var(--bg3));background-color:var(--bg1)}
+.wrap{position:relative;z-index:2;max-width:520px;margin:0 auto;padding:22px 18px 40px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.frieze{letter-spacing:.5em;color:var(--gold);font-size:18px;opacity:.9;margin:6px 0}
+h1{font-size:clamp(28px,8vw,42px);line-height:1.15;margin:6px 0 4px;font-weight:800;background:linear-gradient(90deg,var(--pink2),var(--lav2));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 0 transparent}
+.sub{font-family:'Playfair Display',Georgia,serif;font-style:italic;color:var(--soft);font-size:clamp(15px,4vw,18px);margin:0 0 6px;max-width:420px}
+.stage{position:relative;width:260px;height:290px;margin:4px auto 0}
+.parrot{width:220px;position:absolute;left:50%;top:0;transform:translateX(-50%);animation:sway 4s ease-in-out infinite;transform-origin:50% 5%;filter:drop-shadow(0 10px 14px rgba(180,120,200,.3))}
+.parrot .head{transform-origin:100px 100px;transition:transform .5s}
+.parrot.pick .head{animation:peck .9s ease-in-out}
+.parrot .wing{transform-origin:70px 120px;animation:flap 2.4s ease-in-out infinite}
+.parrot .blink{animation:blink 4s infinite;transform-origin:center;transform-box:fill-box}
+.box{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:170px}
+.flyer{position:absolute;left:50%;top:150px;width:46px;height:56px;margin-left:-23px;opacity:0;z-index:5;pointer-events:none;
+background:linear-gradient(135deg,#fffaf0,#ffe9d6);border:2px solid var(--gold);border-radius:6px;box-shadow:0 6px 16px rgba(0,0,0,.18)}
+.flyer::before{content:"❤";position:absolute;inset:0;display:grid;place-items:center;color:var(--pink2);font-size:20px}
+.flyer.go{animation:fly 1.2s cubic-bezier(.3,.7,.3,1) forwards}
+.q{background:var(--card);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:2px dashed var(--gold);outline:4px solid rgba(255,255,255,.45);outline-offset:-10px;border-radius:28px;padding:22px 18px 20px;width:100%;box-shadow:0 14px 40px rgba(180,120,200,.25);position:relative;transition:opacity .5s,transform .5s}
+.q::before,.q::after{content:"❁";position:absolute;top:-14px;color:var(--pink);font-size:26px;background:var(--bg1);border-radius:50%;line-height:1;padding:0 2px;animation:spin 14s linear infinite}
+.q::before{left:18px}.q::after{right:18px;color:var(--lav)}
+.q.gone{opacity:0;transform:translateY(20px) scale(.95);pointer-events:none;position:absolute;visibility:hidden}
+.qtext{font-size:clamp(24px,7vw,32px);font-weight:800;margin:0 0 4px;line-height:1.2}
+.btns{display:flex;gap:14px;justify-content:center;margin-top:18px}
+.btn{flex:1;max-width:190px;border:0;border-radius:999px;padding:14px 10px;font:800 22px 'Baloo Thambi 2',system-ui,sans-serif;color:#fff;cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
+.btn.yes{background:linear-gradient(135deg,#ff9bbd,#ff5f93);box-shadow:0 8px 20px rgba(255,95,147,.4)}
+.btn.no{background:linear-gradient(135deg,#c2adf5,#8a71e0);box-shadow:0 8px 20px rgba(138,113,224,.4)}
+.btn:hover{transform:translateY(-3px) scale(1.04)}.btn:active{transform:scale(.95)}
+.btn:disabled{opacity:.6;cursor:default;transform:none}
+.hint{font-size:14px;color:var(--soft);margin:14px 0 0}
+#result{display:none;width:100%;perspective:900px}
+#result.show{display:block}
+.card{background:var(--card);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:2px solid var(--gold);outline:4px dashed rgba(224,168,79,.5);outline-offset:-11px;border-radius:26px;padding:30px 20px 24px;box-shadow:0 18px 50px rgba(180,120,200,.35);transform-origin:50% 0;animation:unfold 1s cubic-bezier(.2,.8,.2,1) both}
+.pickedby{font-size:14px;color:var(--soft);margin:0}
+.emoji{font-size:74px;line-height:1.1;margin:6px 0;animation:pop 1s .5s cubic-bezier(.3,1.8,.5,1) both}
+.title{font-size:clamp(26px,8vw,36px);font-weight:800;margin:4px 0 8px;line-height:1.15;background:linear-gradient(90deg,var(--pink2),var(--lav2));-webkit-background-clip:text;background-clip:text;color:transparent;animation:fadeup .8s .8s both}
+.msg{font-size:18px;color:var(--ink);margin:0 auto 18px;max-width:380px;animation:fadeup .8s 1.1s both}
+.again{background:linear-gradient(135deg,var(--pink),var(--lav));animation:fadeup .8s 1.4s both;max-width:240px;box-shadow:0 8px 20px rgba(180,120,200,.4)}
+.music{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);right:12px;z-index:20;border:2px solid var(--gold);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font:700 14px 'Baloo Thambi 2',system-ui,sans-serif;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.fl{position:fixed;bottom:-40px;z-index:1;pointer-events:none;animation:floatup linear forwards;will-change:transform}
+.bf{position:fixed;z-index:3;pointer-events:none;left:-60px;animation:bfly linear infinite}
+.bf svg{width:100%;height:100%}
+.bf .w{animation:wing .28s ease-in-out infinite alternate;transform-origin:50% 50%;transform-box:fill-box}
+.burst{position:fixed;z-index:30;pointer-events:none;animation:burst 1.4s ease-out forwards}
+@keyframes sway{0%,100%{transform:translateX(-50%) rotate(-2deg)}50%{transform:translateX(-50%) rotate(2deg)}}
+@keyframes flap{0%,100%{transform:rotate(0)}50%{transform:rotate(-6deg)}}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+@keyframes peck{0%{transform:rotate(0)}35%{transform:rotate(22deg) translateY(6px)}70%{transform:rotate(-8deg)}100%{transform:rotate(0)}}
+@keyframes fly{0%{opacity:0;transform:translate(0,70px) scale(.4) rotate(-30deg)}20%{opacity:1}60%{transform:translate(0,-60px) scale(1.5) rotate(200deg)}100%{opacity:0;transform:translate(0,-110px) scale(2.2) rotate(380deg)}}
+@keyframes unfold{0%{opacity:0;transform:rotateX(-95deg) scale(.7)}60%{opacity:1}100%{opacity:1;transform:rotateX(0) scale(1)}}
+@keyframes pop{0%{transform:scale(0) rotate(-20deg)}100%{transform:scale(1) rotate(0)}}
+@keyframes fadeup{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
+@keyframes floatup{0%{transform:translateY(0) translateX(0) rotate(0);opacity:0}10%{opacity:.9}100%{transform:translateY(-115vh) translateX(var(--dx)) rotate(var(--rot));opacity:0}}
+@keyframes bfly{0%{transform:translate(0,0) rotate(8deg)}25%{transform:translate(30vw,-8vh) rotate(-10deg)}50%{transform:translate(65vw,6vh) rotate(10deg)}75%{transform:translate(95vw,-6vh) rotate(-8deg)}100%{transform:translate(125vw,0) rotate(8deg)}}
+@keyframes wing{0%{transform:scaleX(1)}100%{transform:scaleX(.25)}}
+@keyframes burst{0%{opacity:1;transform:translate(0,0) scale(.4)}100%{opacity:0;transform:translate(var(--bx),var(--by)) scale(1.4) rotate(var(--rot))}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<button class="music" id="music" aria-label="Toggle music">🎵 Music off</button>
+
+<main class="wrap">
+  <div class="frieze">✿ ❀ ✿ ❀ ✿</div>
+  <h1>Sittu Poduthal</h1>
+  <p class="sub">Kili sollum… sittu edukkum ✨</p>
+
+  <div class="stage" id="stage">
+    <svg class="parrot" id="parrot" viewBox="0 0 200 215" aria-hidden="true">
+      <path d="M90 170 Q70 200 78 212 Q92 205 100 175Z" fill="#5fb88a"/>
+      <path d="M104 170 Q112 200 124 210 Q124 190 112 168Z" fill="#9bd9b6"/>
+      <line x1="30" y1="178" x2="170" y2="178" stroke="#b9855c" stroke-width="9" stroke-linecap="round"/>
+      <ellipse cx="100" cy="128" rx="42" ry="52" fill="#86d6a6"/>
+      <ellipse cx="100" cy="142" rx="26" ry="36" fill="#d5f5df"/>
+      <g class="wing"><path d="M62 108 Q40 140 66 172 Q86 150 84 118Z" fill="#7fb7f0"/><path d="M66 124 Q54 144 68 164" stroke="#b9d8fa" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+      <g class="head">
+        <path d="M86 40 Q80 22 90 14 Q92 28 98 38Z" fill="#ff8fb1"/><path d="M98 38 Q100 16 112 12 Q110 28 108 40Z" fill="#b49cf0"/><path d="M108 40 Q120 24 128 28 Q120 38 116 46Z" fill="#ffc46b"/>
+        <circle cx="100" cy="76" r="34" fill="#86d6a6"/>
+        <circle cx="76" cy="86" r="7" fill="#ff9bbd" opacity=".6"/><circle cx="124" cy="86" r="7" fill="#ff9bbd" opacity=".6"/>
+        <g class="blink"><circle cx="84" cy="70" r="8" fill="#fff"/><circle cx="86" cy="71" r="4.5" fill="#3b2442"/><circle cx="87.5" cy="69" r="1.6" fill="#fff"/></g>
+        <g class="blink"><circle cx="116" cy="70" r="8" fill="#fff"/><circle cx="114" cy="71" r="4.5" fill="#3b2442"/><circle cx="115.5" cy="69" r="1.6" fill="#fff"/></g>
+        <path d="M90 82 Q100 72 110 82 Q109 100 100 104 Q91 100 90 82Z" fill="#ff9a76"/><path d="M95 90 Q100 94 105 90" stroke="#e8744f" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+      <path d="M86 176 l-4 6 M92 176 l-1 7 M108 176 l1 7 M114 176 l4 6" stroke="#ff9a76" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <svg class="box" viewBox="0 0 170 80" aria-hidden="true">
+      <g transform="translate(0,-2)"><rect x="40" y="6" width="22" height="30" rx="3" fill="#fffaf0" stroke="#e0a84f" transform="rotate(-14 51 21)"/><rect x="74" y="0" width="22" height="32" rx="3" fill="#ffe9f0" stroke="#e0a84f"/><rect x="108" y="6" width="22" height="30" rx="3" fill="#efe6ff" stroke="#e0a84f" transform="rotate(14 119 21)"/></g>
+      <path d="M12 30 H158 L148 76 H22Z" fill="#ff9bbd" stroke="#e0a84f" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M12 30 H158" stroke="#e0a84f" stroke-width="6" stroke-linecap="round"/>
+      <g fill="#fff" opacity=".9"><circle cx="45" cy="52" r="4"/><circle cx="85" cy="52" r="4"/><circle cx="125" cy="52" r="4"/><circle cx="65" cy="64" r="3"/><circle cx="105" cy="64" r="3"/></g>
+      <g stroke="#fff" stroke-width="2" fill="none" opacity=".9"><path d="M30 42 Q85 34 140 42"/></g>
+    </svg>
+    <div class="flyer" id="flyer"></div>
+  </div>
+
+  <section class="q" id="ask">
+    <h2 class="qtext">Na avankitta again ponuma? ❤️</h2>
+    <p class="sub" style="margin:6px auto 0">Un manasula irukura kelviya kelu… badhil inga iruku! ✨</p>
+    <div class="btns">
+      <button class="btn yes" data-c="YES">YES ❤️</button>
+      <button class="btn no" data-c="NO">NO 💔</button>
+    </div>
+    <p class="hint">Manasula ketkama, onnu theriyaama… kili sittu edukkum 🦜</p>
+  </section>
+
+  <section id="result" aria-live="polite">
+    <div class="card">
+      <p class="pickedby" id="by"></p>
+      <div class="emoji" id="em"></div>
+      <div class="title" id="tt"></div>
+      <p class="msg" id="mg"></p>
+      <button class="btn again" id="again">Try Again 🔁</button>
+    </div>
+  </section>
+  <div class="frieze" style="margin-top:22px">✿ ❀ ✿ ❀ ✿</div>
+</main>
+
+<script>
+(function(){
+var A=[
+{e:"❤️",t:"YES",m:"Manasu sollura padi po… aana kannai thorandhu po da 💕"},
+{e:"💔",t:"NO",m:"Venaam… un self-respect dhaan mukkiyam. Nee nallave irukka 🌷"},
+{e:"🦋",t:"THINK AGAIN",m:"Konjam nillu, oru dhadava yosichu paaru. Butterfly kooda mela parakka munnaadi nikkum 🦋"},
+{e:"✨",t:"MAYBE",m:"Kili-ku kooda theriyala… un manasukku mattum dhaan theriyum ✨"},
+{e:"😌",t:"UNAKKU AVAN THEVAI ILLA",m:"Nee innum better-a deserve panra. Head high, heart safe 💅"},
+{e:"❤️‍🩹",t:"ONE MORE CHANCE",m:"Oru chance… aana idhu dhaan last-nu un manasukitta sollikko 🩷"}
+];
+var $=function(i){return document.getElementById(i)};
+var last=-1,busy=false;
+
+/* floating hearts & sparkles */
+var G=["❤","💗","✨","🌸","💜","🌷","✦"];
+function floater(){
+  var s=document.createElement("span");s.className="fl";s.textContent=G[Math.random()*G.length|0];
+  var d=7+Math.random()*7;
+  s.style.cssText+="left:"+Math.random()*100+"vw;font-size:"+(12+Math.random()*20)+"px;animation-duration:"+d+"s;--dx:"+(Math.random()*80-40)+"px;--rot:"+(Math.random()*120-60)+"deg;color:"+(Math.random()<.5?"#ff8fb1":"#b49cf0");
+  document.body.appendChild(s);setTimeout(function(){s.remove()},d*1000+100);
+}
+setInterval(floater,550);for(var i=0;i<8;i++)setTimeout(floater,i*150);
+
+/* butterflies */
+var cols=[["#ff9bbd","#ffd1e1"],["#b49cf0","#e0d5ff"],["#ffc46b","#ffe7b5"],["#ff8fb1","#fff"]];
+cols.forEach(function(c,i){
+  var b=document.createElement("div");b.className="bf";
+  var sz=34+i*6;
+  b.style.cssText+="width:"+sz+"px;height:"+sz+"px;top:"+(12+i*20)+"vh;animation-duration:"+(20+i*6)+"s;animation-delay:"+(-i*7)+"s";
+  b.innerHTML='<svg viewBox="0 0 60 50"><g class="w"><path d="M30 25 Q8 0 4 18 Q2 34 30 28Z" fill="'+c[0]+'"/><path d="M30 25 Q52 0 56 18 Q58 34 30 28Z" fill="'+c[0]+'"/><path d="M30 28 Q10 34 14 46 Q26 46 30 30Z" fill="'+c[1]+'"/><path d="M30 28 Q50 34 46 46 Q34 46 30 30Z" fill="'+c[1]+'"/></g><rect x="28.5" y="16" width="3" height="26" rx="1.5" fill="#6a3a63"/></svg>';
+  document.body.appendChild(b);
+});
+
+/* burst of hearts */
+function burst(){
+  var r=$("result").getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+90;
+  for(var i=0;i<26;i++){
+    var s=document.createElement("span");s.className="burst";s.textContent=G[Math.random()*G.length|0];
+    var a=Math.random()*6.28,dist=80+Math.random()*160;
+    s.style.cssText+="left:"+cx+"px;top:"+cy+"px;font-size:"+(16+Math.random()*18)+"px;--bx:"+Math.cos(a)*dist+"px;--by:"+Math.sin(a)*dist+"px;--rot:"+(Math.random()*360)+"deg";
+    document.body.appendChild(s);setTimeout(function(x){return function(){x.remove()}}(s),1500);
+  }
+}
+
+/* picking */
+function pick(choice){
+  if(busy)return;busy=true;
+  document.querySelectorAll(".btn[data-c]").forEach(function(b){b.disabled=true});
+  var p=$("parrot");p.classList.remove("pick");void p.offsetWidth;p.classList.add("pick");
+  var f=$("flyer");f.classList.remove("go");void f.offsetWidth;f.classList.add("go");
+  setTimeout(function(){
+    var n;do{n=Math.random()*A.length|0}while(n===last);last=n;var a=A[n];
+    $("by").textContent="Nee sonna: "+choice+"  •  Kili edutha sittu 🦜";
+    $("em").textContent=a.e;$("tt").textContent=a.t;$("mg").textContent=a.m;
+    $("ask").classList.add("gone");
+    var r=$("result");r.classList.remove("show");void r.offsetWidth;r.classList.add("show");
+    r.querySelectorAll(".card,.emoji,.title,.msg,.again").forEach(function(el){el.style.animation="none";void el.offsetWidth;el.style.animation=""});
+    setTimeout(burst,700);
+  },1150);
+}
+document.querySelectorAll(".btn[data-c]").forEach(function(b){b.addEventListener("click",function(){pick(b.dataset.c)})});
+$("again").addEventListener("click",function(){
+  $("result").classList.remove("show");
+  var q=$("ask");q.classList.remove("gone");
+  document.querySelectorAll(".btn[data-c]").forEach(function(b){b.disabled=false});
+  busy=false;window.scrollTo({top:0,behavior:"smooth"});
+});
+
+/* music: soft Mohanam-style loop via WebAudio */
+var ac,on=false,tm,idx=2,sc=[261.63,293.66,329.63,392,440,523.25,587.33,659.25];
+function note(f,t,d,v,type){
+  var o=ac.createOscillator(),g=ac.createGain();o.type=type||"sine";o.frequency.value=f;
+  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.04);g.gain.exponentialRampToValueAtTime(.0001,t+d);
+  o.connect(g);g.connect(ac.destination);o.start(t);o.stop(t+d+.05);
+}
+function tick(){
+  var t=ac.currentTime;
+  idx=Math.max(0,Math.min(sc.length-1,idx+[-2,-1,-1,0,1,1,2][Math.random()*7|0]));
+  note(sc[idx],t,1.4,.09,"triangle");
+  if(Math.random()<.35)note(sc[idx]*2,t+.22,1,.04,"sine");
+  if(ticks++%8===0){note(130.81,t,3.4,.07);note(196,t,3.4,.05)}
+}
+var ticks=0;
+$("music").addEventListener("click",function(){
+  try{
+    if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();
+    if(ac.state==="suspended")ac.resume();
+    on=!on;
+    if(on){ticks=0;tick();tm=setInterval(tick,520)}else{clearInterval(tm)}
+    this.textContent=on?"🎶 Music on":"🎵 Music off";
+  }catch(e){}
+});
+})();
+</script>
+</body>
+</html>
